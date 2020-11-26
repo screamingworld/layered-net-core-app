@@ -1,0 +1,1 @@
+layered-net-core-app
