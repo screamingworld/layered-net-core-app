@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Layered.DataLayer.Contract\Layered.DataLayer.Contract.csproj" />
+    <ProjectReference Include="..\Layered.Application.Contract\Layered.Application.Contract.csproj" />
+    <ProjectReference Include="..\Layered.Business.Contract\Layered.Business.Contract.csproj" />
+    <ProjectReference Include="..\Layered.Validation\Layered.Common.csproj" />
+  </ItemGroup>
+
+</Project>
