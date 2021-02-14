@@ -1,13 +1,13 @@
-﻿using Layered.DataLayer.Contract.Entities;
+﻿using Layered.DataLayer.Contract.Table;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Layered.DataLayer.Contract.Abstractions
 {
-    public interface IRepository<TEntity> where TEntity : IEntity
+    public interface IRepository<TTable> where TTable : ITable
     {
-        Task<ItemEntity> Get(string id, CancellationToken cancellationToken);
-        Task Add(TEntity entity, CancellationToken cancellationToken);
+        Task<Item> Get(string id, CancellationToken cancellationToken);
+        Task Add(TTable entity, CancellationToken cancellationToken);
 
         // Further methods for real world yes...
     }

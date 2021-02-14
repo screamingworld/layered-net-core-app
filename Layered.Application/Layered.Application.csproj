@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Layered.DataLayer.Contract\Layered.DataLayer.Contract.csproj" />
     <ProjectReference Include="..\Layered.Application.Contract\Layered.Application.Contract.csproj" />
     <ProjectReference Include="..\Layered.Business.Contract\Layered.Business.Contract.csproj" />
     <ProjectReference Include="..\Layered.Validation\Layered.Common.csproj" />

@@ -3,8 +3,8 @@ using FluentValidation;
 using Layered.Application.Contract.Models;
 using Layered.Application.Contract.Services;
 using Layered.Business.Contract.Abstractions;
+using Layered.Business.Contract.Entities;
 using Layered.Common.Core;
-using Layered.DataLayer.Contract.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,15 +15,19 @@ namespace Layered.Application.Services
         private readonly IItemDataService _itemDataService;
         private readonly IMapper _mapper;
         private readonly IValidator<ItemModel> _validator;
+        public int Instance;
+        public static int InstanceCount;
 
         public ItemService(
             IItemDataService itemDataService,
             IMapper mapper,
             IValidator<ItemModel> validator)
         {
+            InstanceCount++;
             _itemDataService = itemDataService ?? throw new System.ArgumentNullException(nameof(itemDataService));
             _mapper = mapper ?? throw new System.ArgumentNullException(nameof(mapper));
             _validator = validator;
+            Instance = InstanceCount;
         }
 
         public async Task<ItemModel> GetItem(string id, CancellationToken cancellationToken)

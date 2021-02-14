@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Layered.DataLayer.Contract.Entities
+namespace Layered.Business.Contract.Entities
 {
     public class ItemEntity : IEntity
     {

@@ -1,4 +1,4 @@
-﻿using Layered.DataLayer.Contract.Entities;
+﻿using Layered.Business.Contract.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 

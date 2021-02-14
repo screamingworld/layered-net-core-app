@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Layered.Application.Contract.Models;
-using Layered.DataLayer.Contract.Entities;
+using Layered.Business.Contract.Entities;
 
 namespace Layered.Application.Mapping
 {
-    public class MappingProfile : Profile
+    public class ApplicationMappingProfile : Profile
     {
-        public MappingProfile()
+        public ApplicationMappingProfile()
         {
             CreateProfile();
         }

@@ -5,8 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Layered.Business.Contract\Layered.Business.Contract.csproj" />
     <ProjectReference Include="..\Layered.Business.Contract\Layered.Business.Contract.csproj" />
+    <ProjectReference Include="..\Layered.DataLayer.Contract\Layered.DataLayer.Contract.csproj" />
   </ItemGroup>
 
 </Project>

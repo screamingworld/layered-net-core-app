@@ -1,4 +1,4 @@
-﻿namespace Layered.DataLayer.Contract.Entities
+﻿namespace Layered.Business.Contract.Entities
 {
     public interface IEntity
     {

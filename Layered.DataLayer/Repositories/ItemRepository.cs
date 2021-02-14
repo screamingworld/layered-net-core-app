@@ -1,5 +1,5 @@
 ﻿using Layered.DataLayer.Contract.Abstractions;
-using Layered.DataLayer.Contract.Entities;
+using Layered.DataLayer.Contract.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +10,16 @@ namespace Layered.DataLayer.Repositories
 {
     // Fake repository which has no connection to persisting the data.
     // It is only a runtime repository.
-    public class ItemRepository : IRepository<ItemEntity>
+    public class ItemRepository : IRepository<Item>
     {
-        private List<ItemEntity> _store;
+        private List<Item> _store;
         
         public ItemRepository() 
         {
             // Adding runtime data for fake repo...
-            _store = new List<ItemEntity> 
+            _store = new List<Item> 
             {
-                new ItemEntity
+                new Item
                 {
                     Id = "1",
                     Name = "First",
@@ -27,7 +27,7 @@ namespace Layered.DataLayer.Repositories
                     CreationDate = new DateTimeOffset(new DateTime(2020, 1, 1)),
                     Position = 1,
                 },
-                new ItemEntity
+                new Item
                 {
                     Id = "2",
                     Name = "Second",
@@ -35,7 +35,7 @@ namespace Layered.DataLayer.Repositories
                     CreationDate = new DateTimeOffset(new DateTime(2020, 1, 2)),
                     Position = 2,
                 },
-                new ItemEntity
+                new Item
                 {
                     Id = "3",
                     Name = "Third",
@@ -47,7 +47,7 @@ namespace Layered.DataLayer.Repositories
         }
 
 
-        public Task Add(ItemEntity item, CancellationToken cancellationToken)
+        public Task Add(Item item, CancellationToken cancellationToken)
         {
             if (_store.SingleOrDefault(x => x.Id == item.Id) != null)
                 throw new InvalidOperationException($"The item with id: '{item.Id}' could not be added because it already exists.");
@@ -57,7 +57,7 @@ namespace Layered.DataLayer.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<ItemEntity> Get(string id, CancellationToken cancellationToken) 
+        public Task<Item> Get(string id, CancellationToken cancellationToken) 
             => Task.FromResult(_store.SingleOrDefault(x => x.Id == id));
     }
 }

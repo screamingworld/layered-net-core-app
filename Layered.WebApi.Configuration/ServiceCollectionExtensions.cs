@@ -8,7 +8,7 @@ using Layered.Application.Services;
 using Layered.Business.Contract.Abstractions;
 using Layered.Business.Services;
 using Layered.DataLayer.Contract.Abstractions;
-using Layered.DataLayer.Contract.Entities;
+using Layered.DataLayer.Contract.Table;
 using Layered.DataLayer.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -24,9 +24,9 @@ namespace Layered.WebApi.Configuration
 
             serviceCollection.AddAutoMapper((srv, cfg) =>
             {
-                cfg.AddProfile(typeof(MappingProfile));
+                cfg.AddProfile(typeof(ApplicationMappingProfile));
             },
-            new Assembly[0], ServiceLifetime.Singleton);
+            new Assembly[0], ServiceLifetime.Transient);
 
             return serviceCollection;
         }
@@ -35,12 +35,18 @@ namespace Layered.WebApi.Configuration
         {
             serviceCollection.AddSingleton<IItemDataService, ItemDataService>();
 
+            serviceCollection.AddAutoMapper((srv, cfg) =>
+            {
+                cfg.AddProfile(typeof(BusinessMappingProfile));
+            },
+            new Assembly[0], ServiceLifetime.Transient);
+
             return serviceCollection;
         }
 
         public static IServiceCollection AddDataLayer(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IRepository<ItemEntity>, ItemRepository>();
+            serviceCollection.AddSingleton<IRepository<Item>, ItemRepository>();
 
             return serviceCollection;
         }
